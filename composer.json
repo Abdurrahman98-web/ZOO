@@ -1,0 +1,11 @@
+{
+  "name": "abdurrahman/zoo-app",
+  "description": "A simple PHP zoo application.",
+  "require": {
+      "php": ">=7.4"
+  },
+  "license": "proprietary"
+}
+
+
+  
