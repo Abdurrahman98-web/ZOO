@@ -1,0 +1,12 @@
+# Bağımlılıklar
+/vendor/
+
+# İşletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+
+# IDE ve editör dosyaları
+.vscode/
+.idea/
+*.log
+
