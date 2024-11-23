@@ -23,7 +23,7 @@
                     <li class="nav-item"><a class="nav-link" href="./index.php">Accueil</a></li>
                     <li class="nav-item"><a class="nav-link" href="./habitats.php">Habitats</a></li>
                     <li class="nav-item"><a class="nav-link" href="./services.php">Services</a></li>
-                    <li class="nav-item"><a class="nav-link" href="./ login.php">Connexion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="./login.php">Connexion</a></li>
                 </ul>
                 <a href="./contact.php" class="btn btn-outline-success ms-3 p-2">Contact</a>
             </div>
