@@ -1,0 +1,13 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# PHP, HTML, CSS ve JS dosyalarına izin ver
+<FilesMatch "\.(php|html|htm|css|js)$">
+    Require all granted
+</FilesMatch> 
+ # Gizli dosyalara erişimi engelle
+<FilesMatch "^\.DS_Store$">
+    Require all denied
+</FilesMatch> 
+
+
