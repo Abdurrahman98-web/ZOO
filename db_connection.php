@@ -1,29 +1,20 @@
 <?php
-// Heroku'nun DATABASE_URL ortam değişkenini al
-$databaseUrl = parse_url(getenv('JAWSDB_URL'));
+// Ortam değişkenini kullanarak veritabanına bağlanma
+$dsn = getenv('JAWSDB_URL'); // JAWSDB_URL'yi al
+$parsedUrl = parse_url($dsn);
 
-if ($databaseUrl) {
-    // DATABASE_URL varsa Heroku'da çalışıyoruz
-    $url = parse_url($databaseUrl);
+$host = $parsedUrl['host'];
+$username = $parsedUrl['user'];
+$password = $parsedUrl['pass'];
+$database = ltrim($parsedUrl['path'], '/');
+$port = $parsedUrl['port'];
 
-    $servername = $url['host'];
-    $username = $url['user'];
-    $password = $url['pass'];
-    $dbname = ltrim($url['path'], '/');
-} else {
-    // Yerel ortam için bağlantı bilgileri
-    $servername = "localhost";
-    $username = "root";
-    $password = "root";
-    $dbname = "login_db";
-}
-
-// MySQL bağlantısı oluşturuluyor
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Bağlantı kontrolü
+// Veritabanına bağlanma
+$conn = new mysqli($host, $username, $password, $database, $port);
 if ($conn->connect_error) {
-    die("Veritabanı bağlantısı başarısız: " . $conn->connect_error);
+    die("Bağlantı hatası: " . $conn->connect_error);
 }
+echo "Veritabanı bağlantısı başarılı!";
 ?>
+
 
