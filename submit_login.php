@@ -3,12 +3,16 @@ session_start();
 require 'db_connection.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Form verilerini al
     $role = $_POST['role'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    
 
-
+    // Boş alan kontrolü
+    if (empty($role) || empty($username) || empty($password)) {
+        echo "Tüm alanlar doldurulmalıdır.";
+        exit();
+    }
 
     // Kullanıcıyı doğrula
     $stmt = $conn->prepare("SELECT * FROM users WHERE username = ? AND role = ?");
@@ -24,17 +28,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['role'] = $user['role'];
 
+            // Yönlendirme
             if ($user['role'] === 'Administrateur') {
                 header("Location: admin_panel.php");
+                exit();
             } else {
-                echo "Connexion réussie. Bienvenue, $role!";
+                echo "Bağlantı başarılı. Hoş geldiniz, $role!";
             }
             exit();
         } else {
-            echo "Mot de passe incorrect.";
+            echo "Şifre yanlış.";
         }
     } else {
-        echo "Nom d'utilisateur ou rôle invalide.";
+        echo "Kullanıcı adı veya rol yanlış.";
     }
 }
 ?>
+
