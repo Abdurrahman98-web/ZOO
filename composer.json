@@ -1,5 +1,6 @@
 {
   "name": "abdurrahman/zoo-app",
+  "version": "1.0.0",
   "description": "A simple PHP zoo application.",
   "require": {
       "php": "^8.0",
