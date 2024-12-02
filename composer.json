@@ -3,7 +3,8 @@
   "description": "A simple PHP zoo application.",
   "require": {
       "php": "^8.0",
-    "vlucas/phpdotenv": "^5.6"
+      "ext-pdo": "*",
+      "vlucas/phpdotenv": "^5.6"
   },
   "license": "proprietary"
 }

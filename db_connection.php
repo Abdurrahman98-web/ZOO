@@ -5,8 +5,7 @@ $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 // Heroku'daki JAWSDB_URL'yi kontrol edi
-$dbUrl = getenv('JAWSDB_URL') ;
-// ?: $_ENV['JAWSDB_URL'];
+$dbUrl = getenv('JAWSDB_URL') ?: $_ENV['JAWSDB_URL'];
 if ($dbUrl) {
     $dbParts = parse_url($dbUrl);
     $host = $dbParts['host'];
