@@ -1,0 +1,22 @@
+Options +FollowSymLinks
+RewriteEngine On
+
+# Rediriger tout le trafic vers index.php pour gérer les routes dynamiques
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [L]
+
+# Autoriser l'accès aux fichiers PHP, HTML, CSS et JS
+<FilesMatch "\.(php|html|htm|css|js)$">
+    Require all granted
+</FilesMatch>
+
+# Bloquer l'accès aux fichiers cachés comme .DS_Store
+<FilesMatch "^\.DS_Store$">
+    Require all denied
+</FilesMatch>
+
+# Bloquer
+
+
